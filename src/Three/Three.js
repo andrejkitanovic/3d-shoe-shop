@@ -8,13 +8,13 @@ import "./Three.scss";
 import { animated } from "react-spring-three";
 
 const Shoe = () => {
-  const { nodes } = useLoader(GLTFLoader, "shoe_without_sole.glb", draco());
+  const { nodes } = useLoader(GLTFLoader, "BeigeShoe/shoe_without_sole.glb", draco());
 
   return <primitive object={nodes.Scene} />;
 };
 
 const Sole = () => {
-  const { nodes } = useLoader(GLTFLoader, "shoe_sole.glb", draco());
+  const { nodes } = useLoader(GLTFLoader, "BeigeShoe/shoe_sole.glb", draco());
 
   return <primitive object={nodes.Scene} />;
 };
