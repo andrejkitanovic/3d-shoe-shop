@@ -6,7 +6,7 @@ import Shadows from "./Shadows";
 import "./Three.scss";
 
 
-import {  animated } from "react-spring-three";
+import { animated } from "react-spring-three";
 
 
 const Suzanne = (props) => {
@@ -24,7 +24,7 @@ const Suzanne = (props) => {
   });
 
   // const anim = useSpring({
-  //   scale: hover ? [8, 8, 8] : [6, 6, 6]
+  //   scale: hover ? [0.08, 0.08, 0.08] : [0.06, 0.06, 0.06]
   // });
 
   return (
@@ -33,14 +33,11 @@ const Suzanne = (props) => {
         ref={group}
         {...props}
         dispose={null}
-        // onPointerDown={() => setHover(true)}
-        // onPointerUp={() => setHover(false)}
-        // onPointerOut={() => setHover(false)}
-        scale={[0.1,0.1,0.1]}
+        scale={[0.065, 0.065, 0.065]}
         rotation={[0,0,0.6]}
       >
-        <primitive object={nodes.highFBXASC032poly} />
-        <meshBasicMaterial attach="material" />
+        <primitive
+        object={nodes.highFBXASC032poly} />
       </animated.group>
       <Shadows
         ref={shadow}
