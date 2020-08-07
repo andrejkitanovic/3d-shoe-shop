@@ -1,24 +1,21 @@
 import React, { Suspense, useRef, useState } from "react";
 import { Canvas, Dom, useLoader, useFrame } from "react-three-fiber";
-import { OrbitControls } from "drei";
+import { OrbitControls , draco } from "drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
+// import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 import Shadows from "./Shadows";
 import "./Three.scss";
 
 
 import { useSpring, animated } from "react-spring-three";
 
+
 const Suzanne = (props) => {
   const [hover, setHover] = useState(false);
   const group = useRef();
   const shadow = useRef();
 
-  const { nodes } = useLoader(GLTFLoader, "/beige_shoe.glb", (loader) => {
-    const dracoLoader = new DRACOLoader();
-    dracoLoader.setDecoderPath('/draco-gltf/');
-    loader.setDRACOLoader(dracoLoader);
-  });
+  const { nodes } = useLoader(GLTFLoader, "/beige_shoe.glb", draco());
 
   useFrame((state, delta) => {
     const sine = Math.sin(state.clock.getElapsedTime());
