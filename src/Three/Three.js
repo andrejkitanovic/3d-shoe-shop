@@ -1,20 +1,28 @@
 import React, { Suspense, useRef } from "react";
 import { Canvas, Dom, useLoader, useFrame } from "react-three-fiber";
-import { OrbitControls , draco } from "drei";
+import { OrbitControls, draco } from "drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import Shadows from "./Shadows";
 import "./Three.scss";
 
-
 import { animated } from "react-spring-three";
 
+const Shoe = () => {
+  const { nodes } = useLoader(GLTFLoader, "shoe_without_sole.glb", draco());
+
+  return <primitive object={nodes.Scene} />;
+};
+
+const Sole = () => {
+  const { nodes } = useLoader(GLTFLoader, "shoe_sole.glb", draco());
+
+  return <primitive object={nodes.Scene} />;
+};
 
 const Suzanne = (props) => {
   // const [hover, setHover] = useState(false);
   const group = useRef();
   const shadow = useRef();
-
-  const { nodes } = useLoader(GLTFLoader, "models/she.glb", draco());
 
   useFrame((state, delta) => {
     const sine = Math.sin(state.clock.getElapsedTime());
@@ -23,21 +31,17 @@ const Suzanne = (props) => {
     shadow.current((1.2 + sine) * 1.5);
   });
 
-  // const anim = useSpring({
-  //   scale: hover ? [0.08, 0.08, 0.08] : [0.06, 0.06, 0.06]
-  // });
-
   return (
     <>
       <animated.group
         ref={group}
         {...props}
         dispose={null}
-        scale={[0.065, 0.065, 0.065]}
-        rotation={[0,0,0.6]}
+        scale={[8, 8, 8]}
+        rotation={[0, 0, 0.6]}
       >
-        <primitive
-        object={nodes.highFBXASC032poly} />
+        <Shoe />
+        <Sole />
       </animated.group>
       <Shadows
         ref={shadow}
@@ -67,7 +71,6 @@ export default () => (
         enableZoom={false}
         minPolarAngle={Math.PI / 4}
         maxPolarAngle={Math.PI / 2}
-       
       />
     </Suspense>
   </Canvas>
