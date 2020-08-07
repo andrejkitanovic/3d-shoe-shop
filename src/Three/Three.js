@@ -6,19 +6,19 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 import Shadows from "./Shadows";
 import "./Three.scss";
 
+
 import { useSpring, animated } from "react-spring-three";
 
 const Suzanne = (props) => {
   const [hover, setHover] = useState(false);
   const group = useRef();
   const shadow = useRef();
-  const { nodes } = useLoader(GLTFLoader, "models/beige_shoe.glb", (loader) => {
+
+  const { nodes } = useLoader(GLTFLoader, "/beige_shoe.glb", (loader) => {
     const dracoLoader = new DRACOLoader();
-    dracoLoader.setDecoderPath("/draco-gltf/");
+    dracoLoader.setDecoderPath('/draco-gltf/');
     loader.setDRACOLoader(dracoLoader);
   });
-
-  console.log(nodes.Scene)
 
   useFrame((state, delta) => {
     const sine = Math.sin(state.clock.getElapsedTime());
@@ -44,6 +44,7 @@ const Suzanne = (props) => {
         rotation={[0,0,0.6]}
       >
         <primitive object={nodes.Scene} />
+        <meshBasicMaterial attach="material" />
       </animated.group>
       <Shadows
         ref={shadow}
