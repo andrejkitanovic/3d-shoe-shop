@@ -1,4 +1,4 @@
-import React, { Suspense, useRef, useState } from "react";
+import React, { Suspense, useRef } from "react";
 import { Canvas, Dom, useLoader, useFrame } from "react-three-fiber";
 import { OrbitControls , draco } from "drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
@@ -6,11 +6,11 @@ import Shadows from "./Shadows";
 import "./Three.scss";
 
 
-import { useSpring, animated } from "react-spring-three";
+import {  animated } from "react-spring-three";
 
 
 const Suzanne = (props) => {
-  const [hover, setHover] = useState(false);
+  // const [hover, setHover] = useState(false);
   const group = useRef();
   const shadow = useRef();
 
@@ -23,9 +23,9 @@ const Suzanne = (props) => {
     shadow.current((1.2 + sine) * 1.5);
   });
 
-  const anim = useSpring({
-    scale: hover ? [8, 8, 8] : [6, 6, 6]
-  });
+  // const anim = useSpring({
+  //   scale: hover ? [8, 8, 8] : [6, 6, 6]
+  // });
 
   return (
     <>
