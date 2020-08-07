@@ -24,9 +24,9 @@ const Suzanne = (props) => {
     shadow.current((1.2 + sine) * 1.5);
   });
 
-  // const anim = useSpring({
-  //   scale: hover ? [8, 8, 8] : [6, 6, 6]
-  // });
+  const anim = useSpring({
+    scale: hover ? [8, 8, 8] : [6, 6, 6]
+  });
 
   return (
     <>
