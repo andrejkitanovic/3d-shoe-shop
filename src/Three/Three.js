@@ -15,7 +15,7 @@ const Suzanne = (props) => {
   const group = useRef();
   const shadow = useRef();
 
-  const { nodes } = useLoader(GLTFLoader, "/beige_shoe.glb", draco());
+  const { nodes } = useLoader(GLTFLoader, "models/black_shoe.glb", draco());
 
   useFrame((state, delta) => {
     const sine = Math.sin(state.clock.getElapsedTime());
