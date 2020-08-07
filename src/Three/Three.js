@@ -27,7 +27,6 @@ const Suzanne = (props) => {
   // const anim = useSpring({
   //   scale: hover ? [8, 8, 8] : [6, 6, 6]
   // });
-  const test = true;
 
   return (
     <>
