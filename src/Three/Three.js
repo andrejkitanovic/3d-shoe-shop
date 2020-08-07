@@ -2,7 +2,6 @@ import React, { Suspense, useRef, useState } from "react";
 import { Canvas, Dom, useLoader, useFrame } from "react-three-fiber";
 import { OrbitControls , draco } from "drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-// import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 import Shadows from "./Shadows";
 import "./Three.scss";
 
@@ -15,7 +14,8 @@ const Suzanne = (props) => {
   const group = useRef();
   const shadow = useRef();
 
-  const { nodes } = useLoader(GLTFLoader, "models/black_shoe.glb", draco());
+  const { nodes } = useLoader(GLTFLoader, "she.glb", draco());
+  console.log(nodes)
 
   useFrame((state, delta) => {
     const sine = Math.sin(state.clock.getElapsedTime());
@@ -24,9 +24,10 @@ const Suzanne = (props) => {
     shadow.current((1.2 + sine) * 1.5);
   });
 
-  const anim = useSpring({
-    scale: hover ? [8, 8, 8] : [6, 6, 6]
-  });
+  // const anim = useSpring({
+  //   scale: hover ? [8, 8, 8] : [6, 6, 6]
+  // });
+  const test = true;
 
   return (
     <>
@@ -34,13 +35,13 @@ const Suzanne = (props) => {
         ref={group}
         {...props}
         dispose={null}
-        onPointerDown={() => setHover(true)}
-        onPointerUp={() => setHover(false)}
-        onPointerOut={() => setHover(false)}
-        scale={anim.scale}
+        // onPointerDown={() => setHover(true)}
+        // onPointerUp={() => setHover(false)}
+        // onPointerOut={() => setHover(false)}
+        scale={[0.1,0.1,0.1]}
         rotation={[0,0,0.6]}
       >
-        <primitive object={nodes.Scene} />
+        <primitive object={nodes.highFBXASC032poly} />
         <meshBasicMaterial attach="material" />
       </animated.group>
       <Shadows
