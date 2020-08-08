@@ -12,7 +12,7 @@ const Layout = () => {
       <Header />
       <Three />
       <div className={classes.Drop}>
-        <DropDown text="Product Information" />
+        <DropDown text="Product Information" active/>
         <DropDown text="Leather" />
         <DropDown text="Sole" />
         <DropDown text="Personalization" />

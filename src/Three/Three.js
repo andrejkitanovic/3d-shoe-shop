@@ -7,16 +7,75 @@ import "./Three.scss";
 
 import { animated } from "react-spring-three";
 
+const black = 0xFFD700;
+const darkBlue = 0x000000;
+
+const Shoe = (props) => {
+  const { nodes } = useLoader(GLTFLoader, "BeigeShoe/shoe/shoe.glb", draco());
+
+  const main = nodes.Object005.material.clone();
+  const obod = nodes.Object005.material.clone();
+
+  obod.color.setHex(black)
+  
+  if(props.black){
+    main.color.setHex(black);
+  }else main.color.setHex(darkBlue);
+  
+
+  return (
+    <group position={[0.01,0,0]} scale={[0.98,0.98,0.98]}>
+      <mesh
+        material={obod}
+        geometry={nodes.Object005.geometry}
+      ></mesh>
+      <mesh material={main} geometry={nodes.Object013.geometry}></mesh>
+      <mesh material={main} geometry={nodes.Object014.geometry}></mesh>
+      <mesh material={main} geometry={nodes.Object015.geometry}></mesh>
+      <mesh material={main} geometry={nodes.Object016.geometry}></mesh>
+      <mesh material={main} geometry={nodes.Object017.geometry}></mesh>
+      <mesh material={main} geometry={nodes.Object018.geometry}></mesh>
+      <mesh
+        material={nodes.Object005.material}
+        geometry={nodes.Object019.geometry}
+      ></mesh>
+      <mesh
+        material={nodes.Object005.material}
+        geometry={nodes.Object024.geometry}
+      ></mesh>
+      <mesh
+        material={nodes.Object005.material}
+        geometry={nodes.Object025.geometry}
+      ></mesh>
+    </group>
+  );
+};
+
+const Sole = (props) => {
+  const { nodes } = useLoader(GLTFLoader, "BeigeShoe/sole/sole.glb", draco());
+
+  const main = nodes.Object019.material.clone();
+  main.color.setHex(black);
+
+  return (
+    <group position={[0,-0.32,0]}>
+      <mesh material={main} geometry={nodes.Object019.geometry}></mesh>
+      <mesh material={main} geometry={nodes.Object020.geometry}></mesh>
+      <mesh material={main} geometry={nodes.Object021.geometry}></mesh>
+      <mesh material={main} geometry={nodes.Object022.geometry}></mesh>
+      <mesh material={main} geometry={nodes.Object023.geometry}></mesh>
+    </group>
+  );
+};
+
 const Scene = (props) => {
   const group = useRef();
   const shadow = useRef();
 
-  const { nodes } = useLoader(GLTFLoader, "BeigeShoe/beige.glb", draco());
-
   useFrame((state, delta) => {
     const sine = Math.sin(state.clock.getElapsedTime());
     group.current.rotation.y += delta / 2;
-    group.current.position.y = (0.3 + sine) * 0.2;
+    group.current.position.y = (1.3 + sine) * 0.2;
     shadow.current((1.2 + sine) * 1.5);
   });
 
@@ -26,10 +85,11 @@ const Scene = (props) => {
         ref={group}
         {...props}
         dispose={null}
-        scale={[10, 10, 10]}
+        scale={[1.5, 1.5, 1.5]}
         rotation={[0, 0, 0.6]}
       >
-       <primitive object={nodes.Scene} />
+        <Shoe />
+        <Sole />
       </animated.group>
       <Shadows
         ref={shadow}
