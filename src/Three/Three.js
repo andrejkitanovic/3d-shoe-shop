@@ -86,7 +86,7 @@ const Scene = (props) => {
         ref={group}
         {...props}
         dispose={null}
-        scale={[1.5, 1.5, 1.5]}
+        scale={[1.6, 1.6, 1.6]}
         rotation={[0, 0, 0.6]}
       >
         <Shoe />
