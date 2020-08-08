@@ -3,9 +3,11 @@ import './App.css';
 
 import Three from './Three/Three'
 
-function App() {
+const App = () => {
+
   return (
     <div className="App">
+      <p className="coverme">Loading...</p>
       <Three />
     </div>
   );

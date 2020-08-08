@@ -5,63 +5,13 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import Shadows from "./Shadows";
 import "./Three.scss";
 
-// import * as THREE from "three";
-
 import { animated } from "react-spring-three";
 
-// const djon = "#800000";
-// const pertle = "#800000";
-// const obod = "#800000";
-
-const Shoe = () => {
-  const { nodes } = useLoader(GLTFLoader, "BlackShoe/black.glb", draco());
-
- console.log(nodes)
-  return (
-    <primitive object={nodes.Scene} />
-  );
-};
-
-// const Sole = () => {
-//   const { nodes, materials } = useLoader(
-//     GLTFLoader,
-//     "BeigeShoe/shoeSoleDraco.glb",
-//   );
-//   console.log(nodes);
-//   return (
-//     <group position={[0, -0.31, 0]}>
-//       <mesh
-//         material={materials["01 - Default"]}
-//         geometry={nodes.Object019.geometry}
-//       >
-//         <meshPhysicalMaterial attach="material" />
-//       </mesh>
-//       <mesh
-//         material={materials["01 - Default"]}
-//         geometry={nodes.Object020.geometry}
-//       >
-//         <meshPhysicalMaterial attach="material" color={djon} />
-//       </mesh>
-//       <mesh
-//         material={materials["01 - Default"]}
-//         geometry={nodes.Object021.geometry}
-//       ></mesh>
-//       <mesh
-//         material={materials["01 - Default"]}
-//         geometry={nodes.Object022.geometry}
-//       ></mesh>
-//       <mesh
-//         material={materials["01 - Default"]}
-//         geometry={nodes.Object023.geometry}
-//       ></mesh>
-//     </group>
-//   );
-// };
-
-const Suzanne = (props) => {
-  // const [hover, setHover] = useState(false);
+const Scene = (props) => {
   const group = useRef();
   const shadow = useRef();
+
+  const { nodes } = useLoader(GLTFLoader, "BeigeShoe/beige.glb", draco());
 
   useFrame((state, delta) => {
     const sine = Math.sin(state.clock.getElapsedTime());
@@ -71,7 +21,7 @@ const Suzanne = (props) => {
   });
 
   return (
-    <>
+    <React.Fragment>
       <animated.group
         ref={group}
         {...props}
@@ -79,8 +29,7 @@ const Suzanne = (props) => {
         scale={[8, 8, 8]}
         rotation={[0, 0, 0.6]}
       >
-        {/* <Sole /> */}
-        <Shoe />
+       <primitive object={nodes.Scene} />
       </animated.group>
       <Shadows
         ref={shadow}
@@ -93,7 +42,7 @@ const Suzanne = (props) => {
         blur={1}
         far={50}
       />
-    </>
+    </React.Fragment>
   );
 };
 
@@ -103,14 +52,14 @@ export default () => (
     <ambientLight intensity={0.1} />
     <pointLight position={[10, 20, 10]} intensity={1.25} />
     <pointLight position={[-10, 20, -10]} color="#DAA520" intensity={0.4} />
-    <Suspense fallback={<Dom center>loading...</Dom>}>
-      <Suzanne />
-      <OrbitControls
-        enablePan={false}
-        enableZoom={false}
-        minPolarAngle={Math.PI / 4}
-        maxPolarAngle={Math.PI / 2}
-      />
+    <Suspense fallback={<Dom center>Loading...</Dom>}>
+      <Scene />
     </Suspense>
+    <OrbitControls
+      enablePan={false}
+      enableZoom={false}
+      minPolarAngle={Math.PI / 4}
+      maxPolarAngle={Math.PI / 2}
+    />
   </Canvas>
 );
