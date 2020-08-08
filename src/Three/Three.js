@@ -16,7 +16,7 @@ const Scene = (props) => {
   useFrame((state, delta) => {
     const sine = Math.sin(state.clock.getElapsedTime());
     group.current.rotation.y += delta / 2;
-    group.current.position.y = (1.3 + sine) * 0.2;
+    group.current.position.y = (0.3 + sine) * 0.2;
     shadow.current((1.2 + sine) * 1.5);
   });
 
@@ -26,7 +26,7 @@ const Scene = (props) => {
         ref={group}
         {...props}
         dispose={null}
-        scale={[8, 8, 8]}
+        scale={[10, 10, 10]}
         rotation={[0, 0, 0.6]}
       >
        <primitive object={nodes.Scene} />
@@ -34,7 +34,7 @@ const Scene = (props) => {
       <Shadows
         ref={shadow}
         rotation={[Math.PI / 2, 0, 0]}
-        position={[0, -1.1, 0]}
+        position={[0, -1.5, 0]}
         doublePass
         opacity={0.5}
         width={8}
