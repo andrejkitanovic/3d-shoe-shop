@@ -17,11 +17,11 @@ const Shoe = (props) => {
   const main = nodes.Object005.material.clone();
   const obod = nodes.Object005.material.clone();
 
-  obod.color.setHex(beige)
+  obod.color.setHex(black)
   
   if(props.black){
     main.color.setHex(black);
-  }else main.color.setHex(darkBlue);
+  }else main.color.setHex(beige);
   
 
   return (
@@ -34,7 +34,7 @@ const Shoe = (props) => {
       <mesh material={main} geometry={nodes.Object014.geometry}></mesh>
       <mesh material={main} geometry={nodes.Object015.geometry}></mesh>
       <mesh material={main} geometry={nodes.Object016.geometry}></mesh>
-      <mesh material={main} geometry={nodes.Object017.geometry}></mesh>
+      <mesh material={obod} geometry={nodes.Object017.geometry}></mesh>
       <mesh material={main} geometry={nodes.Object018.geometry}></mesh>
       <mesh
         material={nodes.Object005.material}
@@ -56,7 +56,7 @@ const Sole = (props) => {
   const { nodes } = useLoader(GLTFLoader, "BeigeShoe/sole/sole.glb", draco());
 
   const main = nodes.Object019.material.clone();
-  main.color.setHex(beige);
+  main.color.setHex(black);
 
   return (
     <group position={[0,-0.32,0]}>
