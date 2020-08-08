@@ -8,7 +8,7 @@ import "./Three.scss";
 import { animated } from "react-spring-three";
 
 const black = 0xFFD700;
-const darkBlue = 0x091324;
+const darkBlue = 0x18233f;
 const beige = 0xffffff;
 
 const Shoe = (props) => {
@@ -17,11 +17,11 @@ const Shoe = (props) => {
   const main = nodes.Object005.material.clone();
   const obod = nodes.Object005.material.clone();
 
-  obod.color.setHex(black)
+  obod.color.setHex(darkBlue)
   
   if(props.black){
     main.color.setHex(black);
-  }else main.color.setHex(beige);
+  }else main.color.setHex(darkBlue);
   
 
   return (
@@ -56,7 +56,7 @@ const Sole = (props) => {
   const { nodes } = useLoader(GLTFLoader, "BeigeShoe/sole/sole.glb", draco());
 
   const main = nodes.Object019.material.clone();
-  main.color.setHex(black);
+  main.color.setHex(beige);
 
   return (
     <group position={[0,-0.32,0]}>
