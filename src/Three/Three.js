@@ -5,6 +5,8 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import Shadows from "./Shadows";
 import "./Three.scss";
 
+import * as THREE from "three";
+
 import { animated } from "react-spring-three";
 
 const djon = "#800000";
@@ -12,103 +14,49 @@ const pertle = "#800000";
 const obod = "#800000";
 
 const Shoe = () => {
-  const { nodes, materials } = useLoader(
-    GLTFLoader,
-    "BeigeShoe/shoe_without_sole.glb",
-    draco()
-  );
+  const { nodes, materials } = useLoader(GLTFLoader, "BeigeShoe/beige.glb", draco());
 
-  console.log(materials["01 - Default"])
+ console.log(nodes)
   return (
-    <group position={[0.01, 0, 0]} scale={[0.98, 0.98, 0.98]}>
-      <mesh
-        material={materials["01 - Default"]}
-        geometry={nodes.Object005.geometry}
-      ></mesh>
-      <mesh
-        material={materials["01 - Default"]}
-        geometry={nodes.Object013.geometry}
-      ></mesh>
-      <mesh
-        material={materials["01 - Default"]}
-        geometry={nodes.Object014.geometry}
-      ></mesh>
-      <mesh
-        material={materials["01 - Default"]}
-        geometry={nodes.Object015.geometry}
-      >
-        <meshPhysicalMaterial attach="material" color={obod} />
-      </mesh>
-      <mesh
-        material={materials["01 - Default"]}
-        geometry={nodes.Object016.geometry}
-      >
-        <meshPhysicalMaterial attach="material" color={obod} />
-      </mesh>
-      <mesh
-        material={materials["01 - Default"]}
-        geometry={nodes.Object017.geometry}
-      >
-        <meshPhysicalMaterial attach="material" color={pertle} />
-      </mesh>
-      <mesh
-        material={materials["01 - Default"]}
-        geometry={nodes.Object018.geometry}
-      >
-        <meshPhysicalMaterial attach="material" color={obod} />
-      </mesh>
-      <mesh
-        material={materials["01 - Default"]}
-        geometry={nodes.Object019.geometry}
-      ></mesh>
-      <mesh
-        material={materials["01 - Default"]}
-        geometry={nodes.Object024.geometry}
-      ></mesh>
-      <mesh
-        material={materials["01 - Default"]}
-        geometry={nodes.Object025.geometry}
-      ></mesh>
-    </group>
+    <primitive object={nodes.Scene} />
   );
 };
 
-const Sole = () => {
-  const { nodes, materials } = useLoader(
-    GLTFLoader,
-    "BeigeShoe/shoe_sole.glb",
-    draco()
-  );
-  console.log(nodes);
-  return (
-    <group position={[0, -0.31, 0]}>
-      <mesh
-        material={materials["01 - Default"]}
-        geometry={nodes.Object019.geometry}
-      >
-        <meshPhysicalMaterial attach="material" />
-      </mesh>
-      <mesh
-        material={materials["01 - Default"]}
-        geometry={nodes.Object020.geometry}
-      >
-        <meshPhysicalMaterial attach="material" color={djon} />
-      </mesh>
-      <mesh
-        material={materials["01 - Default"]}
-        geometry={nodes.Object021.geometry}
-      ></mesh>
-      <mesh
-        material={materials["01 - Default"]}
-        geometry={nodes.Object022.geometry}
-      ></mesh>
-      <mesh
-        material={materials["01 - Default"]}
-        geometry={nodes.Object023.geometry}
-      ></mesh>
-    </group>
-  );
-};
+// const Sole = () => {
+//   const { nodes, materials } = useLoader(
+//     GLTFLoader,
+//     "BeigeShoe/shoeSoleDraco.glb",
+//   );
+//   console.log(nodes);
+//   return (
+//     <group position={[0, -0.31, 0]}>
+//       <mesh
+//         material={materials["01 - Default"]}
+//         geometry={nodes.Object019.geometry}
+//       >
+//         <meshPhysicalMaterial attach="material" />
+//       </mesh>
+//       <mesh
+//         material={materials["01 - Default"]}
+//         geometry={nodes.Object020.geometry}
+//       >
+//         <meshPhysicalMaterial attach="material" color={djon} />
+//       </mesh>
+//       <mesh
+//         material={materials["01 - Default"]}
+//         geometry={nodes.Object021.geometry}
+//       ></mesh>
+//       <mesh
+//         material={materials["01 - Default"]}
+//         geometry={nodes.Object022.geometry}
+//       ></mesh>
+//       <mesh
+//         material={materials["01 - Default"]}
+//         geometry={nodes.Object023.geometry}
+//       ></mesh>
+//     </group>
+//   );
+// };
 
 const Suzanne = (props) => {
   // const [hover, setHover] = useState(false);
@@ -128,10 +76,10 @@ const Suzanne = (props) => {
         ref={group}
         {...props}
         dispose={null}
-        scale={[1.2, 1.2, 1.2]}
+        scale={[8, 8, 8]}
         rotation={[0, 0, 0.6]}
       >
-        <Sole />
+        {/* <Sole /> */}
         <Shoe />
       </animated.group>
       <Shadows
