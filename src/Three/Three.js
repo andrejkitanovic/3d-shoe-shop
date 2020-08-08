@@ -5,16 +5,16 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import Shadows from "./Shadows";
 import "./Three.scss";
 
-import * as THREE from "three";
+// import * as THREE from "three";
 
 import { animated } from "react-spring-three";
 
-const djon = "#800000";
-const pertle = "#800000";
-const obod = "#800000";
+// const djon = "#800000";
+// const pertle = "#800000";
+// const obod = "#800000";
 
 const Shoe = () => {
-  const { nodes, materials } = useLoader(GLTFLoader, "BeigeShoe/beige.glb", draco());
+  const { nodes } = useLoader(GLTFLoader, "BeigeShoe/beige.glb", draco());
 
  console.log(nodes)
   return (
