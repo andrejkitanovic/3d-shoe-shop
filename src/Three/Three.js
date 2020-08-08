@@ -86,7 +86,7 @@ const Scene = (props) => {
         ref={group}
         {...props}
         dispose={null}
-        scale={[1.6, 1.6, 1.6]}
+        scale={[1.3, 1.3, 1.3]}
         rotation={[0, 0, 0.6]}
       >
         <Shoe />
@@ -108,9 +108,9 @@ const Scene = (props) => {
 };
 
 export default () => (
-  <Canvas sRGB camera={{ position: [0, 1, 4.5], fov: 60, near: 1, far: 50 }}>
+  <Canvas sRGB camera={{ position: [0, 1, 4.5], fov: 45, near: 2, far: 9 }}>
     <color attach="background" args={["white"]} />
-    <ambientLight intensity={0.3} />
+    <ambientLight intensity={0.5} />
     <pointLight position={[10, 20, 10]} intensity={1.25} />
     <pointLight position={[-10, 20, -10]} color="#DAA520" intensity={0.4} />
     <Suspense fallback={<Dom center>Loading...</Dom>}>
