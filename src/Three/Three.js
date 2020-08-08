@@ -14,7 +14,7 @@ import { animated } from "react-spring-three";
 // const obod = "#800000";
 
 const Shoe = () => {
-  const { nodes } = useLoader(GLTFLoader, "BeigeShoe/beige.glb", draco());
+  const { nodes } = useLoader(GLTFLoader, "BlackShoe/black.glb", draco());
 
  console.log(nodes)
   return (
