@@ -25,6 +25,21 @@
       animation: lds-dual-ring 1.2s linear infinite;
     }
   }
+
+  @media (min-width: 1200px){
+    .Loader {
+      width: 160px;
+      height: 160px;
+
+      &:after {
+        width: 128px;
+        height: 128px;
+        margin:16px;
+        border: 12px solid #1e2837;
+        border-color: #1e2837 transparent #1e2837 transparent;
+      }
+    }
+  }
 }
 
 @keyframes lds-dual-ring {

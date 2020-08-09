@@ -126,6 +126,14 @@ const Layout = () => {
           />
           <Button />
         </div>
+
+        <div className={classes.Bottom}>
+
+        </div>
+
+        <div className={classes.Right}>
+          
+        </div>
       </div>
     </React.Fragment>
   );
