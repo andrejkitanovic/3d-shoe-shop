@@ -97,7 +97,7 @@ const Scene = (props) => {
         rotation={[Math.PI / 2, 0, 0]}
         position={[0, -1.5, 0]}
         doublePass
-        opacity={0.5}
+        opacity={0.3}
         width={8}
         height={4}
         blur={1}

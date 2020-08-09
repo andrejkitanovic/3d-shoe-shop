@@ -1,18 +1,40 @@
-.DropDown{
-    display:flex;
+.DropDown {
+  border-bottom: 1px solid #8080805c;
+
+  .Flex {
+    width: 100%;
+    display: flex;
     align-items: center;
     justify-content: space-between;
     text-align: left;
-    border-bottom: 1px solid #8080805c;
     text-transform: uppercase;
     cursor: pointer;
 
-    p{
-        margin-left: 5%;
-        font-size: 15px;
+    p {
+      margin-left: 5%;
+      font-size: 15px;
     }
 
     svg {
-        margin-right: 5%;
+      margin-right: 5%;
+      transition: .5s;
+    }
+  }
+
+  .Display {
+    height: 0;
+    transition: .5s;
+  }
+
+  
+}
+
+.active {
+    .Display {
+      height: 100px!important;
+    }
+
+    svg{
+        transform: rotateZ(180deg);
     }
 }
