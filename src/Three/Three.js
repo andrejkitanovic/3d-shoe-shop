@@ -10,7 +10,6 @@ import { animated } from "react-spring-three";
 import {Shoe , Sole} from './Shoes/BeigeShoe'
 
 const Scene = (props) => {
-  console.log(props)
   
   const group = useRef();
   const shadow = useRef();
@@ -31,7 +30,7 @@ const Scene = (props) => {
         scale={[1.3, 1.3, 1.3]}
         rotation={[0, 0, 0.6]}
       >
-        <Shoe color={props.shoeColor}/>
+        <Shoe loading={props.loading} color={props.shoeColor}/>
         <Sole color={props.soleColor}/>
       </animated.group>
       <Shadows

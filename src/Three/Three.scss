@@ -1,11 +1,11 @@
 canvas {
-  height: 300px!important;
+  height: 100%!important;
 
 }
 
 @media (min-width: 1500px) {
   canvas {
-    height: 900px !important;
+    height: 100% !important;
     width: 100% !important;
   }
 }

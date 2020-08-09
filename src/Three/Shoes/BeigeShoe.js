@@ -1,15 +1,13 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {useLoader} from 'react-three-fiber'
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import {draco} from 'drei'
 
-// const black = 0xffd700;
-// const darkBlue = 0x18233f;
-// const beige = 0xffffff;
-
 export const Shoe = (props) => {
-
     const { nodes } = useLoader(GLTFLoader, "BeigeShoe/shoe/shoe.glb", draco());
+  
+    useEffect(props.loading,[])
+   
   
     const main = nodes.Object005.material.clone();
     const obod = nodes.Object005.material.clone();

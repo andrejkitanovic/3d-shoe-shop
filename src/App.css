@@ -2,12 +2,6 @@
   text-align: center;
   height: 100%;
   width: 100%;
-}
-
-.coverme {
-  position: absolute;
-  font-size: 40px;
-  top:20%;
-  left:50%;
-  transform: translateX(-50%);
+  margin:0;
+  padding:0;
 }
