@@ -7,12 +7,18 @@ import DropDown from "../../components/DropDown/DropDown";
 import Button from "../../components/Button/Button";
 import Loader from "../../components/UI/Loader/Loader";
 
+import ColorPicker from '../../components/ColorPicker/ColorPicker'
+
+import Black from '../../assets/images/material/black.png'
+import Brown from '../../assets/images/material/brown.png'
+import DarkBlue from '../../assets/images/material/darkBlue.png'
+
 const Layout = () => {
   const [currDrop, setCurrDrop] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  const [shoeColor, ] = useState("0x614829");
-  const [soleColor, ] = useState("0xffffff");
+  const [shoeColor,setShoeColor] = useState("0x202a34");
+  const [soleColor] = useState("0xffffff");
 
   // console.log(loading)
   // const changeColor = () => {
@@ -40,6 +46,12 @@ const Layout = () => {
     setLoading(false);
   };
 
+  const setShoeColorHandler = (color) => {
+    if(shoeColor !== color){
+      setShoeColor(color)
+    }
+  }
+
   return (
     <React.Fragment>
       <div className={classes.Layout}>
@@ -62,7 +74,11 @@ const Layout = () => {
             text="Leather"
             active={currDrop === 2}
             onClick={setDrop.bind(this, 2)}
-          />
+          >
+            <ColorPicker  img={Black} text="Black" palete={0x131411} onClick={setShoeColorHandler}/>
+            <ColorPicker  img={Brown} text="Brown" palete={0x614829} onClick={setShoeColorHandler}/>
+            <ColorPicker  img={DarkBlue} text="Dark Blue" palete={0x202a34} onClick={setShoeColorHandler}/>
+          </DropDown>
           <DropDown
             text="Sole"
             active={currDrop === 3}

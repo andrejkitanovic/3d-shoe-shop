@@ -12,16 +12,18 @@ const DropDown = (props) => {
   }
 
   return (
-    <div className={currClass.join(' ')} onClick={props.onClick}>
-      <div className={classes.Flex}>
+    <div className={currClass.join(' ')} >
+      <div className={classes.Flex} onClick={props.onClick}>
         <p>{props.text}</p>
         <FontAwesomeIcon icon={faCaretDown} />
       </div>
 
-      <div className={classes.Display}></div>
+      <div className={classes.Display}>
+           {props.children}
+      </div>
     </div>
   );
 
 };
 
-export default DropDown;
+export default React.memo(DropDown);

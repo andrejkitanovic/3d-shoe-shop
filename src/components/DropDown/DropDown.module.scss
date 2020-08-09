@@ -1,5 +1,6 @@
 .DropDown {
   border-bottom: 1px solid #8080805c;
+  overflow: hidden;
 
   .Flex {
     width: 100%;
@@ -22,6 +23,8 @@
   }
 
   .Display {
+    display:flex;
+    justify-content: space-around;
     height: 0;
     transition: .5s;
   }
@@ -31,10 +34,12 @@
 
 .active {
     .Display {
-      height: 100px!important;
+      margin-top: 10px;
+      height: 120px!important;
     }
 
     svg{
         transform: rotateZ(180deg);
     }
 }
+
