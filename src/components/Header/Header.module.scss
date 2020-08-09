@@ -28,5 +28,16 @@
 @media (min-width: 1200px) {
     .Header {
         width: 100%;
+        height: calc(7% - 1px);
+        margin-top:0;
+        min-height: 60px;
+
+        img{
+            width: 50px;
+        }
+
+        svg {
+            font-size: 30px;
+        }
     }
 }
