@@ -18,7 +18,7 @@ import SoleGray from "../../assets/images/material/soleGray.png";
 import SoleSand from "../../assets/images/material/soleSand.png";
 
 const Layout = () => {
-  const [currDrop, setCurrDrop] = useState(0);
+  const [currDrop, setCurrDrop] = useState(1);
   const [loading, setLoading] = useState(true);
 
   const [shoeColor, setShoeColor] = useState("0x202a34");
@@ -54,12 +54,14 @@ const Layout = () => {
     if (shoeColor !== color) {
       setShoeColor(color);
     }
+    setCurrDrop(d => d + 1);
   };
 
   const setSoleColorHandler = (color) => {
     if (soleColor !== color) {
       setSoleColor(color);
     }
+    setCurrDrop(d => d + 1);
   };
 
   return (
