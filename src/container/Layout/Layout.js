@@ -24,22 +24,6 @@ const Layout = () => {
   const [shoeColor, setShoeColor] = useState("0x202a34");
   const [soleColor, setSoleColor] = useState("0xdbdbd3");
 
-  // console.log(loading)
-  // const changeColor = () => {
-  //   let randomShoeColor = Math.floor(Math.random() * 16777215).toString(16);
-  //   randomShoeColor = "0x" + randomShoeColor;
-  //   let randomSoleColor = Math.floor(Math.random() * 16777215).toString(16);
-  //   randomSoleColor = "0x" + randomSoleColor;
-  //   console.log(randomShoeColor);
-  //   console.log(randomSoleColor);
-  //   setShoeColor(randomShoeColor);
-  //   setSoleColor(randomSoleColor);
-  // };
-
-  // useEffect(() => {
-  //   document.addEventListener("keydown", changeColor);
-  // }, []);
-
   const setDrop = (n) => {
     if (n !== currDrop) {
       setCurrDrop(n);
@@ -54,14 +38,14 @@ const Layout = () => {
     if (shoeColor !== color) {
       setShoeColor(color);
     }
-    setCurrDrop(d => d + 1);
+    setCurrDrop((d) => d + 1);
   };
 
   const setSoleColorHandler = (color) => {
     if (soleColor !== color) {
       setSoleColor(color);
     }
-    setCurrDrop(d => d + 1);
+    setCurrDrop((d) => d + 1);
   };
 
   return (
@@ -140,8 +124,8 @@ const Layout = () => {
             active={currDrop === 5}
             onClick={setDrop.bind(this, 5)}
           />
+          <Button />
         </div>
-        <Button />
       </div>
     </React.Fragment>
   );
