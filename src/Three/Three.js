@@ -1,75 +1,17 @@
 import React, { Suspense, useRef } from "react";
-import { Canvas, Dom, useLoader, useFrame } from "react-three-fiber";
-import { OrbitControls, draco } from "drei";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { Canvas, Dom, useFrame } from "react-three-fiber";
+import { OrbitControls } from "drei";
+
 import Shadows from "./Shadows";
 import "./Three.scss";
 
 import { animated } from "react-spring-three";
 
-const black = 0xFFD700;
-const darkBlue = 0x18233f;
-const beige = 0xffffff;
-
-const Shoe = (props) => {
-  const { nodes } = useLoader(GLTFLoader, "BeigeShoe/shoe/shoe.glb", draco());
-
-  const main = nodes.Object005.material.clone();
-  const obod = nodes.Object005.material.clone();
-
-  obod.color.setHex(darkBlue)
-  
-  if(props.black){
-    main.color.setHex(black);
-  }else main.color.setHex(darkBlue);
-  
-
-  return (
-    <group position={[0.01,0,0]} scale={[0.98,0.98,0.98]}>
-      <mesh
-        material={obod}
-        geometry={nodes.Object005.geometry}
-      ></mesh>
-      <mesh material={main} geometry={nodes.Object013.geometry}></mesh>
-      <mesh material={main} geometry={nodes.Object014.geometry}></mesh>
-      <mesh material={main} geometry={nodes.Object015.geometry}></mesh>
-      <mesh material={main} geometry={nodes.Object016.geometry}></mesh>
-      <mesh material={obod} geometry={nodes.Object017.geometry}></mesh>
-      <mesh material={main} geometry={nodes.Object018.geometry}></mesh>
-      <mesh
-        material={nodes.Object005.material}
-        geometry={nodes.Object019.geometry}
-      ></mesh>
-      <mesh
-        material={nodes.Object005.material}
-        geometry={nodes.Object024.geometry}
-      ></mesh>
-      <mesh
-        material={nodes.Object005.material}
-        geometry={nodes.Object025.geometry}
-      ></mesh>
-    </group>
-  );
-};
-
-const Sole = (props) => {
-  const { nodes } = useLoader(GLTFLoader, "BeigeShoe/sole/sole.glb", draco());
-
-  const main = nodes.Object019.material.clone();
-  main.color.setHex(beige);
-
-  return (
-    <group position={[0,-0.32,0]}>
-      <mesh material={main} geometry={nodes.Object019.geometry}></mesh>
-      <mesh material={main} geometry={nodes.Object020.geometry}></mesh>
-      <mesh material={main} geometry={nodes.Object021.geometry}></mesh>
-      <mesh material={main} geometry={nodes.Object022.geometry}></mesh>
-      <mesh material={main} geometry={nodes.Object023.geometry}></mesh>
-    </group>
-  );
-};
+import {Shoe , Sole} from './Shoes/BeigeShoe'
 
 const Scene = (props) => {
+  console.log(props)
+  
   const group = useRef();
   const shadow = useRef();
 
@@ -89,8 +31,8 @@ const Scene = (props) => {
         scale={[1.3, 1.3, 1.3]}
         rotation={[0, 0, 0.6]}
       >
-        <Shoe />
-        <Sole />
+        <Shoe color={props.shoeColor}/>
+        <Sole color={props.soleColor}/>
       </animated.group>
       <Shadows
         ref={shadow}
@@ -107,14 +49,14 @@ const Scene = (props) => {
   );
 };
 
-export default () => (
+export default (props) => (
   <Canvas sRGB camera={{ position: [0, 1, 4.5], fov: 45, near: 2, far: 9 }}>
     <color attach="background" args={["white"]} />
     <ambientLight intensity={0.5} />
     <pointLight position={[10, 20, 10]} intensity={1.25} />
     <pointLight position={[-10, 20, -10]} color="#DAA520" intensity={0.4} />
     <Suspense fallback={<Dom center>Loading...</Dom>}>
-      <Scene />
+      <Scene {...props} />
     </Suspense>
     <OrbitControls
       enablePan={false}
@@ -124,3 +66,4 @@ export default () => (
     />
   </Canvas>
 );
+
