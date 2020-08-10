@@ -24,11 +24,14 @@
 
   .Display {
     display:flex;
+    flex-wrap:wrap;
+    width: 100%;
     justify-content: space-around;
     max-height: 0;
     transition: max-height .8s; //Zatvaranje
 
     p {
+      font-size: 13px;
       text-align: left;
       margin:3% 5%;
     }
@@ -37,7 +40,6 @@
 
 .active {
     .Display {
-     
       max-height: 300px!important;
       transition: max-height .8s; //Otvaranje
     }

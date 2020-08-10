@@ -12,10 +12,16 @@ import ColorPicker from "../../components/ColorPicker/ColorPicker";
 import Black from "../../assets/images/material/black.png";
 import Brown from "../../assets/images/material/brown.png";
 import DarkBlue from "../../assets/images/material/darkBlue.png";
+import LightGray from "../../assets/images/material/lightGray.png";
+import Cognac from "../../assets/images/material/cognac.png";
+import Chocolate from "../../assets/images/material/chocolate.png";
 
 import SoleWhite from "../../assets/images/material/soleWhite.png";
 import SoleGray from "../../assets/images/material/soleGray.png";
 import SoleSand from "../../assets/images/material/soleSand.png";
+import SoleBlack from "../../assets/images/material/soleBlack.png";
+import SoleRoyalBlue from "../../assets/images/material/soleRoyalBlue.png";
+import SoleRed from "../../assets/images/material/soleRed.png";
 
 const Layout = () => {
   const [currDrop, setCurrDrop] = useState(1);
@@ -88,13 +94,31 @@ const Layout = () => {
             <ColorPicker
               img={Brown}
               text="Brown"
-              palete={0x614829}
+              palete={0x45311a}
               onClick={setShoeColorHandler}
             />
             <ColorPicker
               img={DarkBlue}
               text="Dark Blue"
               palete={0x202a34}
+              onClick={setShoeColorHandler}
+            />
+            <ColorPicker
+              img={LightGray}
+              text="Light Gray"
+              palete={0xd5d0cc}
+              onClick={setShoeColorHandler}
+            />
+                <ColorPicker
+              img={Cognac}
+              text="Cognac"
+              palete={0x91411d}
+              onClick={setShoeColorHandler}
+            />
+                <ColorPicker
+              img={Chocolate}
+              text="Chocolate"
+              palete={0x3e2521}
               onClick={setShoeColorHandler}
             />
           </DropDown>
@@ -118,7 +142,25 @@ const Layout = () => {
             <ColorPicker
               img={SoleSand}
               text="Sand / Cream"
-              palete={0xb4976e}
+              palete={0xc19659}
+              onClick={setSoleColorHandler}
+            />
+             <ColorPicker
+              img={SoleBlack}
+              text="Black"
+              palete={0x2a2927}
+              onClick={setSoleColorHandler}
+            />
+            <ColorPicker
+              img={SoleRoyalBlue}
+              text="Royal Blue"
+              palete={0x143560}
+              onClick={setSoleColorHandler}
+            />
+            <ColorPicker
+              img={SoleRed}
+              text="Red"
+              palete={0xd22527}
               onClick={setSoleColorHandler}
             />
           </DropDown>
