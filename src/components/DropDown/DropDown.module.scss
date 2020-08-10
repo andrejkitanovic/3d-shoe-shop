@@ -18,7 +18,7 @@
 
     svg {
       margin-right: 5%;
-      transition: .3s;
+      transition: .5s;
     }
   }
 
@@ -37,10 +37,9 @@
 
 .active {
     .Display {
-      margin-top: 10px;
+     
       max-height: 300px!important;
       transition: max-height .8s; //Otvaranje
-      margin-bottom: 10px;
     }
 
     svg{
