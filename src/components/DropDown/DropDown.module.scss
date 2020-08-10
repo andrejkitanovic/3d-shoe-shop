@@ -18,22 +18,29 @@
 
     svg {
       margin-right: 5%;
-      transition: .5s;
+      transition: .3s;
     }
   }
 
   .Display {
     display:flex;
     justify-content: space-around;
-    height: 0;
-    transition: .5s;
+    max-height: 0;
+    transition: max-height .8s; //Zatvaranje
+
+    p {
+      text-align: left;
+      margin:3% 5%;
+    }
   }
 }
 
 .active {
     .Display {
       margin-top: 10px;
-      height: 120px!important;
+      max-height: 300px!important;
+      transition: max-height .8s; //Otvaranje
+      margin-bottom: 10px;
     }
 
     svg{

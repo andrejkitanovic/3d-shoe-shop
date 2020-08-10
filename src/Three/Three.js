@@ -1,6 +1,6 @@
 import React, { Suspense, useRef } from "react";
 import { Canvas, Dom, useFrame } from "react-three-fiber";
-import { OrbitControls } from "drei";
+import { OrbitControls  } from "drei";
 
 import Shadows from "./Shadows";
 import "./Three.scss";
@@ -8,6 +8,7 @@ import "./Three.scss";
 import { animated } from "react-spring-three";
 
 import {Shoe , Sole} from './Shoes/BeigeShoe'
+
 
 const Scene = (props) => {
   

@@ -65,7 +65,15 @@ const Layout = () => {
             text="Product Information"
             active={currDrop === 1}
             onClick={setDrop.bind(this, 1)}
-          />
+          >
+            <p>
+              Ideal for summer shoes, this flexible chrome-tanned calfskin from
+              Italy complements its supple hand with a short nap that adds a
+              touch of softness that stops just short of your usual suede. Just
+              rub your hand against the Light Suede’s natural grain to bring out
+              the richness of this texture.
+            </p>
+          </DropDown>
           <DropDown
             text="Leather"
             active={currDrop === 2}
@@ -127,13 +135,9 @@ const Layout = () => {
           <Button />
         </div>
 
-        <div className={classes.Bottom}>
+        <div className={classes.Bottom}></div>
 
-        </div>
-
-        <div className={classes.Right}>
-          
-        </div>
+        <div className={classes.Right}></div>
       </div>
     </React.Fragment>
   );
