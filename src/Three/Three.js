@@ -50,7 +50,7 @@ const Scene = (props) => {
 };
 
 export default (props) => (
-  <Canvas sRGB camera={{ position: [0, 1, 4.5], fov: 45, near: 2, far: 9 }}>
+  <Canvas sRGB gl={{antialias:false}} camera={{ position: [0, 1, 4.5], fov: 45, near: 2, far: 9 }}>
     <color attach="background" args={["white"]} />
     <ambientLight intensity={0.5} />
     <pointLight position={[10, 20, 10]} intensity={1.25} />
