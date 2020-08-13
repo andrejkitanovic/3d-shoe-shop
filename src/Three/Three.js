@@ -16,10 +16,10 @@ const Scene = (props) => {
   const shadow = useRef();
 
   useFrame((state, delta) => {
-    const sine = Math.sin(state.clock.getElapsedTime());
-    group.current.rotation.y += delta / 2;
-    group.current.position.y = (1.3 + sine) * 0.2;
-    shadow.current((1.2 + sine) * 1.5);
+    // const sine = Math.sin(state.clock.getElapsedTime());
+    // group.current.rotation.y += delta / 2;
+    // group.current.position.y = (1.3 + sine) * 0.2;
+    shadow.current(1.3 * 1.5);
   });
 
   return (
@@ -37,7 +37,7 @@ const Scene = (props) => {
       <Shadows
         ref={shadow}
         rotation={[Math.PI / 2, 0, 0]}
-        position={[0, -1.5, 0]}
+        position={[0, -2, 0]}
         doublePass
         opacity={0.3}
         width={8}
