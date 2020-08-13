@@ -50,7 +50,7 @@ const Scene = (props) => {
 };
 
 export default (props) => (
-  <Canvas sRGB gl={{antialias:true}} camera={{ position: [0, 1, 4.5], fov: 45, near: 2, far: 30}}>
+  <Canvas sRGB gl={{antialias:true}} camera={{ position: [0, 1, 4.5], fov: 45, near: 1, far: 30}}>
     <color attach="background" args={["white"]} />
     <ambientLight intensity={0.5} />
     <pointLight position={[10, 20, 10]} intensity={1.25} />
@@ -64,7 +64,7 @@ export default (props) => (
       // minPolarAngle={Math.PI / 4}
       // maxPolarAngle={Math.PI / 2}
       rotateSpeed={0.5}
-      minDistance={5}
+      minDistance={3}
       maxDistance={10}
       
     />
