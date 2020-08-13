@@ -60,9 +60,9 @@ export default (props) => (
     </Suspense>
     <OrbitControls
       enablePan={false}
-      enableZoom={false}
-      minPolarAngle={Math.PI / 4}
-      maxPolarAngle={Math.PI / 2}
+      // enableZoom={false}
+      // minPolarAngle={Math.PI / 4}
+      // maxPolarAngle={Math.PI / 2}
     />
   </Canvas>
 );
